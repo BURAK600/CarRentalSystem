@@ -11,29 +11,58 @@
 </head>
 <body>
 
-<h1>Uyelik Sayfası</h1>
-
 
 <div class="container">
 
     <div class="row">
 
 
-        <div class="col-2"></div>
+        <div class="col-2">
+
+        </div>
 
         <div class="col-8">
+
+            <h1>Customer Register Page</h1><br><br>
             <form action="doregister" method="post">
                 <div class="mb-3">
-                    <label class="form-label">Email address</label>
-                    <input type="email" name="email" class="form-control" placeholder="name@example.com" required>
+                    <label class="form-label">First Name</label>
+                    <input type="text" name="firstName" class="form-control" placeholder="your first name"
+                           required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Kullanıcı Adı</label>
-                    <input type="text" name="username" class="form-control" placeholder="bir kullanıcı adı giriniz"
-                           required></div>
-                <div class="mb-3"><label class="form-label">Şifre</label>
-                    <input type="password" name="password" class="form-control" placeholder="name@example.com">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" name="lastName" class="form-control" placeholder="your last name"
+                           required>
                 </div>
+
+                <!--               <div>
+                                   <label for="gender" class="form-label">Gender</label>
+                                   <select  name="gender" id="gender">
+                                       <div th:each="gender : ${Gender}" >
+                                           <option th:text="${gender}"  th:value="${gender}"></option>
+                                       </div>
+                               </div>-->
+
+                <div class="mb-3">
+                    <label class="form-label">Email address</label>
+                    <input type="email" name="email" class="form-control" placeholder="your email" required>
+                </div>
+
+                <div class="mb-3"><label class="form-label">Şifre</label>
+                    <input type="password" name="password" class="form-control" placeholder="your password" required>
+                </div>
+                <br>
+
+                <div>
+                    <label for="gender" class="form-label">Gender</label>
+                    <select name="gender" id="gender">
+                        <div th:each="gender : ${T(com.burak.carrentalsystem.repository.entity.Gender).values()}">
+                            <option th:text="${gender}" th:value="${gender}"></option>
+                        </div>
+                        </select>
+                </div>
+
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-success">Üye OL</button>
                 </div>

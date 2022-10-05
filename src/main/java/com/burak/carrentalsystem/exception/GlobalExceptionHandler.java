@@ -1,4 +1,4 @@
-package com.burak.Java3Monolithic.exception;
+package com.burak.carrentalsystem.exception;
 
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
@@ -14,8 +14,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.burak.Java3Monolithic.exception.ErrorType.BAD_REQUEST_ERROR;
+import static com.burak.carrentalsystem.exception.ErrorType.BAD_REQUEST_ERROR;
 
 
 @ControllerAdvice

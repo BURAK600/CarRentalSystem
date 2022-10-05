@@ -1,4 +1,4 @@
-package com.burak.Java3Monolithic.exception;
+package com.burak.carrentalsystem.exception;
 
 
 import lombok.AllArgsConstructor;

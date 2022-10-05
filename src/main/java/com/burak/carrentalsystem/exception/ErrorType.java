@@ -1,4 +1,4 @@
-package com.burak.Java3Monolithic.exception;
+package com.burak.carrentalsystem.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,9 +18,9 @@ public enum ErrorType {
 
 
 
-    MUSTERI_BULUNAMADI(1003,"Aradığınız müşteri kayıtlarda bulunamdı", INTERNAL_SERVER_ERROR),
-    MUSTERI_SILINEMEDI(1004,"Müşteri silinemedi", INTERNAL_SERVER_ERROR),
-    SATIS_EKLEME_SORUNU(2005,"Satış Eklenirken zorunlu alanların boş olduğu görüldü.", INTERNAL_SERVER_ERROR);
+    CUSTOMER_BULUNAMADI(1003,"Aradığınız müşteri kayıtlarda bulunamdı", INTERNAL_SERVER_ERROR),
+    CUSTOMER_SILINEMEDI(1004,"Müşteri silinemedi", INTERNAL_SERVER_ERROR);
+
 
     private int code; // 1003, 1004, 2005
     private String message;

@@ -1,10 +1,14 @@
-package com.burak.Java3Monolithic.utility;
+package com.burak.carrentalsystem.utility;
 
-import com.burak.Java3Monolithic.repository.IMusteriRepository;
-import com.burak.Java3Monolithic.repository.ISatisRepository;
-import com.burak.Java3Monolithic.repository.IUrunRepository;
-import com.burak.Java3Monolithic.repository.entity.Musteri;
-import com.burak.Java3Monolithic.repository.entity.Urun;
+
+import com.burak.carrentalsystem.repository.ICarOwnerRepository;
+import com.burak.carrentalsystem.repository.ICarRepository;
+import com.burak.carrentalsystem.repository.ICustomerRepository;
+import com.burak.carrentalsystem.repository.entity.Car;
+import com.burak.carrentalsystem.repository.entity.CarOwner;
+import com.burak.carrentalsystem.repository.entity.Customer;
+import com.burak.carrentalsystem.repository.entity.Gender;
+import com.burak.carrentalsystem.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -15,70 +19,65 @@ import java.util.Arrays;
 @Component
 public class DefaultDataImpl {
 
-    private final IMusteriRepository iMusteriRepository;
-    private final IUrunRepository iUrunRepository;
-    private final ISatisRepository iSatisRepository;
+    private final ICarOwnerRepository iCarOwnerRepository;
 
-    @PostConstruct
+    private final ICarRepository iCarRepository;
+
+    private final ICustomerRepository iCustomerRepository;
+
+   @PostConstruct
     private void create(){
-        saveMusteri();
-        saveUrun();
+        saveCustomer();
+        saveCar();
+        saveCarOwner();
 
     }
 
-    private void saveMusteri(){
-        Musteri musteri = Musteri.builder()
-                .ad("Muhammet")
-                .soyad("Kaya")
-                .adres("İstanbul")
-                .telefon("0532 123 45 67")
-                .dogumtarihi(1990)
-                .email("muhammed@gmail.com").build();
-        Musteri musteri1 = Musteri.builder()
-                .ad("Kenan")
-                .soyad("KESKİN")
-                .adres("İstanbul")
-                .telefon("0532 785 45 67")
-                .dogumtarihi(1980)
-                .email("kanen@gmail.com").build();
-        Musteri musteri2 = Musteri.builder()
-                .ad("Bahar")
-                .soyad("TAŞ")
-                .adres("Ankara")
-                .telefon("0532 785 87 67")
-                .dogumtarihi(1984)
-                .email("bahar@gmail.com").build();
-        Musteri musteri3 = Musteri.builder()
-                .ad("Mehmet")
-                .soyad("KAYA")
-                .adres("İzmir")
-                .telefon("0532 785 45 67")
-                .dogumtarihi(1988)
-                .email("mehmet@gmail.com").build();
-        Musteri musteri4 = Musteri.builder()
-                .ad("Ayşe")
-                .soyad("KAYA")
-                .adres("Adana")
-                .telefon("0532 785 45 98")
-                .dogumtarihi(1991)
-                .email("ayse@gmail.com").build();
+    private void saveCar(){
+        Car car = Car.builder().type("Sedan").brand("Toyoto").model("A200").build();
+        Car car2 = Car.builder().type("Sedan").brand("Volvo").model("B300").build();
+        Car car3= Car.builder().type("Sedan").brand("Mercedes").model("C300").build();
+        Car car4= Car.builder().type("Crossover").brand("Renault").model("CESA12").build();
+        Car car5= Car.builder().type("Minivan").brand("Toyoto").model("C600").build();
+        Car car6= Car.builder().type("SportCar").brand("Hondo").model("Civic").build();
 
-        iMusteriRepository.saveAll(Arrays.asList(musteri,musteri1,musteri2,musteri3,musteri4));
+
+
+        iCarRepository.saveAll(Arrays.asList(car,car2,car3,car4,car5,car6));
     }
 
-    public void saveUrun(){
-        Urun urun = Urun.builder().ad("Şeker").fiyat(100.0).isActive(true).marka("A marka").model("B model").stok(50).build();
-        Urun urun1 = Urun.builder().ad("çay").fiyat(1050.0).isActive(true).marka("b marka").model("s model").stok(500).build();
-        Urun urun2 = Urun.builder().ad("makarna").fiyat(300.0).isActive(true).marka("c marka").model("s model").stok(10).build();
-        Urun urun3 = Urun.builder().ad("süt").fiyat(106.0).isActive(true).marka("v marka").model("B model").stok(500).build();
-        Urun urun4 = Urun.builder().ad("bal").fiyat(156.0).isActive(true).marka("r marka").model("r model").stok(30).build();
-        Urun urun5 = Urun.builder().ad("çay").fiyat(123.0).isActive(true).marka("t marka").model("t model").stok(50).build();
-        Urun urun6 = Urun.builder().ad("kola").fiyat(1000.0).isActive(true).marka("e marka").model("w model").stok(50).build();
+    public void saveCarOwner() {
+        CarOwner carOwner = CarOwner.builder().firstName("Ali").lastName("Mana").phoneNumber("05554564434").carId(1l).
+                build();
+        CarOwner carOwner2 = CarOwner.builder().firstName("Mehmet").lastName("Dasa").phoneNumber("05551232323").carId(2l).
+                build();
+        CarOwner carOwner3 = CarOwner.builder().firstName("Cengiz").lastName("Aktu").phoneNumber("05553454434").carId(3l).
+                build();
+        CarOwner carOwner4 = CarOwner.builder().firstName("Burak").lastName("Özer").phoneNumber("05554574434").carId(4l).
+                build();
+        CarOwner carOwner5 = CarOwner.builder().firstName("Hasan").lastName("Dada").phoneNumber("05554564434").carId(5l).
+                build();
+        CarOwner carOwner6= CarOwner.builder().firstName("Hasan").lastName("Dada").phoneNumber("05554564434").carId(6l).
+                build();
+        iCarOwnerRepository.saveAll(Arrays.asList(carOwner,carOwner2,carOwner3,carOwner4,carOwner5,carOwner6));
 
-        iUrunRepository.saveAll(Arrays.asList(urun,urun1,urun2,urun3,urun4,urun5,urun6));
+
     }
+    public void saveCustomer(){
+        Customer customer = Customer.builder().idNumber("600321234555").firstName("Aytug").lastName("Dogan").address("Ankara").phoneNumber("05666662334").carId(2l)
+                .build();
+        Customer customer2 = Customer.builder().idNumber("60034532123").firstName("Ramazan").lastName("Aktı").address("İtanbul").phoneNumber("05666662334").carId(1l)
+                .build();
+        Customer customer3 = Customer.builder().idNumber("60032768934").firstName("Kerem").lastName("Merdan").address("Malatya").phoneNumber("05666662334").carId(5l)
+                .build();
+        Customer customer4 = Customer.builder().idNumber("60098045623").firstName("Merve").lastName("Bogdan").address("İzmir").phoneNumber("05666662334").carId(3l).email("burakozer539@gmail.com").gender(Gender.MAN).password("12345").build();
+        Customer customer5 = Customer.builder().idNumber("60098045623").firstName("Merve").lastName("Bogdan").address("İzmir").phoneNumber("05666662334").carId(3l).email("burakozer@gmail.com").gender(Gender.WOMAN).password("12345")
+                .build();
+
+        iCustomerRepository.saveAll(Arrays.asList(customer,customer2,customer3,customer4,customer5));
 
 
+    }
     }
 
 

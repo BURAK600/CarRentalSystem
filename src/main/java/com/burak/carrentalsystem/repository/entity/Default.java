@@ -1,2 +1,17 @@
-package com.burak.carrentalsystem.repository.entity;public class Default {
+package com.burak.carrentalsystem.repository.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@SuperBuilder
+public class Default {
+
+    boolean isActive;
+    Long createDate;
+    Long updateDate;
+
 }

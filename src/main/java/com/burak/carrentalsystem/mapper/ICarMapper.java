@@ -1,2 +1,8 @@
-package com.burak.carrentalsystem.mapper;public interface ICarMapper {
+package com.burak.carrentalsystem.mapper;
+
+import org.mapstruct.Mapper;
+import org.mapstruct.ReportingPolicy;
+
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+public interface ICarMapper {
 }

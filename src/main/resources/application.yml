@@ -1,11 +1,14 @@
 server:
-  port: 9091
+  port: 9090
+  error:
+    whitelabel:
+      enabled: true
 
 
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/CommentAppDB
+    url: jdbc:postgresql://localhost:5432/CarRentalSystemDB
     username: postgres
     password: root
   jpa:

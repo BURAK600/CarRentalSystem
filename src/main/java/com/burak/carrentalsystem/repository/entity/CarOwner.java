@@ -1,26 +1,28 @@
 package com.burak.carrentalsystem.repository.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Table(name = "tblcarowner")
 @Entity
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class CarOwner{
+@SuperBuilder
+
+public class CarOwner extends Default{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String firstName;
     private String lastName;
     private String phoneNumber;
+    private Long carId;
+
+
+
 }

@@ -1,6 +1,6 @@
-package com.burak.Java3Monolithic.utility;
+package com.burak.carrentalsystem.utility;
 
-import com.burak.Java3Monolithic.repository.entity.Default;
+import com.burak.carrentalsystem.repository.entity.Default;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
