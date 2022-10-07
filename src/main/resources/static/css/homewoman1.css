@@ -1,0 +1,43 @@
+/*header {
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+
+}*/
+
+.nav {
+    margin-top: 2rem;
+    background-color: #e93eef;
+    height: 5rem;
+}
+
+.navbar {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.75rem;
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+}
+
+.car-group1{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.car-group1 div{
+
+    width: 20rem;
+    margin: 1rem;
+
+}
+
+.footer{
+    background-color: #e93eef;
+
+}
+

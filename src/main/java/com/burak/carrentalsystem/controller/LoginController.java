@@ -19,7 +19,7 @@ import static com.burak.carrentalsystem.constants.EndPoint.*;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping(VERSION+WEB+LOGIN)
+@RequestMapping(VERSION+API+LOGIN)
 public class LoginController {
 
     private final CustomerService customerService;
@@ -37,13 +37,14 @@ public class LoginController {
     public ModelAndView dologin(CustomerLoginRequestDto customerLoginRequestDto) {
 
         ModelAndView modelAndView = new ModelAndView();
-        Optional<Customer> customer = customerService.login(customerLoginRequestDto.getEmail(), customerLoginRequestDto.getPassword());
+        Optional<Customer> customer = customerService.login(customerLoginRequestDto);
         if (customer.isPresent()) {
             if (customer.get().getGender().equals(Gender.MAN)) {
                 List<Customer> users =  customerService.findAll();
                 modelAndView.addObject("customer", customer);
                 modelAndView.setViewName("homeman");
             } else {
+                modelAndView.addObject("customer", customer);
                 modelAndView.setViewName("homewoman");
             }
         } else {

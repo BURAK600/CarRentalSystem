@@ -1,6 +1,7 @@
 package com.burak.carrentalsystem.controller;
 
 
+import com.burak.carrentalsystem.dto.request.CustomerRegisterRequestDto;
 import com.burak.carrentalsystem.repository.entity.Customer;
 import com.burak.carrentalsystem.repository.entity.Gender;
 import com.burak.carrentalsystem.service.CustomerService;
@@ -14,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import static com.burak.carrentalsystem.constants.EndPoint.*;
 
 @Controller
-@RequestMapping(VERSION+WEB+REGISTER)
+@RequestMapping(VERSION+API+REGISTER)
 @RequiredArgsConstructor
 public class RegisterController {
 
@@ -28,12 +29,8 @@ public class RegisterController {
     }
 
     @PostMapping(DOREGISTER)
-    public ModelAndView doregister(String firstName, String lastName, String email,
-
-                                   String password, Gender gender) {
-        customerService.save(
-                Customer.builder().firstName(firstName).lastName(lastName).email(email).password(password).gender(gender).build()
-        );
+    public ModelAndView doregister(CustomerRegisterRequestDto customerRegisterRequestDto) {
+        customerService.save(customerRegisterRequestDto);
 
         return new ModelAndView("redirect:/mkv/web/login/loginpage");
 

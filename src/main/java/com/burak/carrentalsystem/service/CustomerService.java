@@ -1,5 +1,8 @@
 package com.burak.carrentalsystem.service;
 
+import com.burak.carrentalsystem.dto.request.CustomerLoginRequestDto;
+import com.burak.carrentalsystem.dto.request.CustomerRegisterRequestDto;
+import com.burak.carrentalsystem.mapper.ICustomerMapper;
 import com.burak.carrentalsystem.repository.ICustomerRepository;
 import com.burak.carrentalsystem.repository.entity.Customer;
 import com.burak.carrentalsystem.repository.entity.Gender;
@@ -19,15 +22,21 @@ public class CustomerService extends ServiceManager<Customer, Long> {
         this.iCustomerRepository = iCustomerRepository;
     }
 
-    public Optional<Customer> login (String email, String password){
+    public Optional<Customer> login (CustomerLoginRequestDto customerLoginRequestDto){
 
-        Optional<Customer> customer = iCustomerRepository.findOptionalByEmailAndPassword(email,password);
+        Optional<Customer> customer = iCustomerRepository.findOptionalByEmailAndPassword(customerLoginRequestDto.getEmail(),customerLoginRequestDto.getPassword());
         if (customer.isEmpty()){
 
             System.out.println("Kullanıcı Bulunamadı");
             return Optional.ofNullable(null);
         }
 
+        return customer;
+    }
+
+    public Customer save(CustomerRegisterRequestDto customerRegisterRequestDto){
+        Customer customer = ICustomerMapper.INSTANCE.toCustomerRegister(customerRegisterRequestDto);
+        iCustomerRepository.save(customer);
         return customer;
     }
 }
