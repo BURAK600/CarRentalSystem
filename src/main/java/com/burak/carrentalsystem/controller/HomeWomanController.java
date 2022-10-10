@@ -14,7 +14,7 @@ public class HomeWomanController {
 
     private final CustomerService customerService;
 
-    @GetMapping("homewoman1")
+    @GetMapping("homewoman")
     public ModelAndView home(){
         ModelAndView modelAndView = new ModelAndView();
         return null;

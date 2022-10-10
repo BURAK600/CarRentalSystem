@@ -70,7 +70,7 @@ public class DefaultDataImpl {
                 .build();
         Customer customer3 = Customer.builder().idNumber("60032768934").firstName("Kerem").lastName("Merdan").address("Malatya").phoneNumber("05666662334").carId(5l)
                 .build();
-        Customer customer4 = Customer.builder().idNumber("60098045623").firstName("Merve").lastName("Bogdan").address("İzmir").phoneNumber("05666662334").carId(3l).email("burakozer539@gmail.com").gender(Gender.MAN).password("12345").build();
+        Customer customer4 = Customer.builder().idNumber("60098045623").firstName("Ali").lastName("Bogdan").address("İzmir").phoneNumber("05666662334").carId(3l).email("burakozer539@gmail.com").gender(Gender.MAN).password("12345").build();
         Customer customer5 = Customer.builder().idNumber("60098045623").firstName("Merve").lastName("Bogdan").address("İzmir").phoneNumber("05666662334").carId(3l).email("burakozer@gmail.com").gender(Gender.WOMAN).password("12345")
                 .build();
 
