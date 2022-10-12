@@ -3,17 +3,15 @@ server:
   error:
     whitelabel:
       enabled: true
-
-
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/CarRentalSystemDB
+    url: jdbc:postgresql://my-postgresql2/carrentalsystemdb
     username: postgres
     password: root
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
